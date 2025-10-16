@@ -1,0 +1,32 @@
+---
+export interface Props {
+  class?: string;
+  href?: string;
+  isPrimary?: boolean;
+}
+
+const { class: className, href, isPrimary } = Astro.props;
+
+const Comp = href ? "a" : "button";
+---
+
+<Comp
+  class:list={[
+    "inline-flex items-center justify-center gap-2 shrink-0",
+    "whitespace-nowrap rounded-lg transition-all",
+    "disabled:pointer-events-none disabled:opacity-50",
+    "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 [&_svg]:shrink-0 [&_:not(svg)]:mt-1",
+    "outline-none focus-visible:border-accent focus-visible:ring-accent/50 focus-visible:ring-[3px]",
+    "h-9 py-1 px-4 cursor-pointer",
+    href && "max-sm:w-full max-sm:h-12 max-sm:py-3 max-sm:justify-start",
+    "shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.1)_0px_10px_15px_-3px,rgba(0,0,0,0.1)_0px_4px_6px_-4px]",
+    isPrimary
+      ? "bg-primary text-background hover:bg-primary/90"
+      : "bg-secondary text-foreground hover:bg-secondary/80 hover:shadow-2xl",
+    className,
+  ]}
+  href={href ?? undefined}
+  target={href ? "_blank" : undefined}
+>
+  <slot />
+</Comp>

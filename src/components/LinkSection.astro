@@ -1,0 +1,37 @@
+---
+import type { SvgComponent } from "astro/types";
+import Button from "@/components/Button.astro";
+import ArrowRightIcon from "@/assets/icons/ArrowRight.svg";
+
+export interface Props {
+  title: string;
+  links: {
+    title: string;
+    icon: SvgComponent & ImageMetadata;
+    href: string;
+  }[];
+}
+
+const { title, links } = Astro.props;
+---
+
+<section class="px-4">
+  <h2 class="text-lg font-bold mb-2">{title}</h2>
+  <ul class="flex flex-col flex-wrap sm:flex-row sm:items-center gap-4">
+    {
+      links.map(item => (
+        <li>
+          <Button href={item.href}>
+            <item.icon width={20} height={20} />
+            <span class="text-lg">{item.title}</span>
+            <ArrowRightIcon
+              width={20}
+              height={20}
+              class="ms-auto text-foreground/75 sm:hidden"
+            />
+          </Button>
+        </li>
+      ))
+    }
+  </ul>
+</section>

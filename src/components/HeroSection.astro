@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import Button from "@/components/Button.astro";
+
+import CSSIcon from "@/assets/icons/CSS.svg";
+import HTMLIcon from "@/assets/icons/HTML.svg";
+import ViteIcon from "@/assets/icons/Vite.svg";
+import NextIcon from "@/assets/icons/NextJS.svg";
+import AstroIcon from "@/assets/icons/Astro.svg";
+import BadgeIcon from "@/assets/icons/badge.svg";
+import NodeIcon from "@/assets/icons/NodeJS.svg";
+import ReactIcon from "@/assets/icons/ReactJS.svg";
+import SvelteIcon from "@/assets/icons/Svelte.svg";
+import DockerIcon from "@/assets/icons/Docker.svg";
+import heroImage from "@/assets/images/satnaing.jpg";
+import TailwindIcon from "@/assets/icons/Tailwind.svg";
+import DownloadIcon from "@/assets/icons/Download.svg";
+import JavaScriptIcon from "@/assets/icons/JavaScript.svg";
+import TypeScriptIcon from "@/assets/icons/TypeScript.svg";
+
+const techStack = [
+  HTMLIcon,
+  JavaScriptIcon,
+  CSSIcon,
+  TypeScriptIcon,
+  ReactIcon,
+  NextIcon,
+  AstroIcon,
+  NodeIcon,
+  ViteIcon,
+  SvelteIcon,
+  DockerIcon,
+  TailwindIcon,
+];
+---
+
+<section
+  class="px-4 py-0 sm:py-8 flex flex-col sm:flex-row gap-4 items-center sm:items-start"
+>
+  <Image
+    src={heroImage}
+    alt="Sat Naing"
+    width={200}
+    height={200}
+    densities={[1.5, 2]}
+    quality="max"
+    class="rounded-lg shadow-2xl"
+  />
+
+  <div
+    class="flex-1 sm:self-stretch flex items-center sm:items-start flex-col gap-2"
+  >
+    <div class="flex gap-2 items-center">
+      <h1 class="text-3xl font-bold">Sat Naing</h1>
+      <BadgeIcon class="text-badge" />
+    </div>
+    <span class="opacity-75 text-lg">Not a chef, but I'm cooking!</span>
+    <ul class="grid grid-cols-6 gap-x-6 gap-y-3 max-sm:hidden">
+      {
+        techStack.map(Icon => (
+          <li>
+            <Icon class="text-muted stroke-[1.5px] opacity-65" />
+          </li>
+        ))
+      }
+    </ul>
+    <div class="mt-auto">
+      <Button isPrimary>
+        <DownloadIcon width={18} height={18} />
+        Resume
+      </Button>
+    </div>
+  </div>
+</section>

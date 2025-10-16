@@ -1,5 +1,73 @@
 ---
+import "@/styles/global.css";
+import "@fontsource-variable/josefin-sans";
+import Header from "@/components/Header.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import LinkSection from "@/components/LinkSection.astro";
 
+import XIcon from "@/assets/icons/X.svg";
+import GitHubIcon from "@/assets/icons/GitHub.svg";
+import MailIcon from "@/assets/icons/MailIcon.svg";
+import BlueskyIcon from "@/assets/icons/Bluesky.svg";
+import TerminalIcon from "@/assets/icons/Terminal.svg";
+import UserCodeIcon from "@/assets/icons/UserCode.svg";
+import LinkedInIcon from "@/assets/icons/LinkedIn.svg";
+import FacebookIcon from "@/assets/icons/Facebook.svg";
+import InstagramIcon from "@/assets/icons/Instagram.svg";
+
+const kitchen = [
+  {
+    title: "GitHub",
+    icon: GitHubIcon,
+    href: "https://github.com/satnaing",
+  },
+  {
+    title: "Terminal",
+    icon: TerminalIcon,
+    href: "https://terminal.satnaing.dev",
+  },
+  {
+    title: "Portfolio",
+    icon: UserCodeIcon,
+    href: "https://satnaing.dev",
+  },
+];
+
+const connect = [
+  {
+    title: "Email",
+    icon: MailIcon,
+    href: "mailto:satnaingdev@gmail.com",
+  },
+  {
+    title: "LinkedIn",
+    icon: LinkedInIcon,
+    href: "https://www.linkedin.com/in/satnaing/",
+  },
+];
+
+const socials = [
+  {
+    title: "Bluesky",
+    icon: BlueskyIcon,
+    href: "https://bsky.app/profile/satnaing.bsky.social",
+  },
+  {
+    title: "Twitter (X)",
+    icon: XIcon,
+    href: "https://x.com/SatNaingDev",
+  },
+  {
+    title: "Instagram",
+    icon: InstagramIcon,
+    href: "https://www.instagram.com/satnaing.dev/",
+  },
+  {
+    title: "Facebook",
+    icon: FacebookIcon,
+    href: "https://www.facebook.com/satnaing.dev",
+  },
+];
 ---
 
 <html lang="en">
@@ -8,9 +76,40 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Sat Naing</title>
   </head>
-  <body>
-    <h1>Sat Naing</h1>
+  <body
+    class:list={[
+      "min-h-dvh max-w-lg mx-auto",
+      "flex flex-col gap-8",
+      "antialiased bg-background text-foreground",
+    ]}
+  >
+    <Header />
+
+    <HeroSection />
+
+    <LinkSection title="Kitchen" links={kitchen} />
+
+    <LinkSection title="Connect" links={connect} />
+
+    <LinkSection title="Socials" links={socials} />
+
+    <footer class="mt-auto px-4 py-2 flex justify-center items-center gap-2">
+      <span class="relative flex size-2">
+        <span
+          class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+        ></span>
+        <span class="relative inline-flex size-2 rounded-full bg-emerald-500"
+        ></span>
+      </span>
+      <span>Bangkok, Thailand</span>
+    </footer>
   </body>
 </html>
+
+<style>
+  body {
+    font-family: "Josefin Sans Variable", sans-serif;
+  }
+</style>
