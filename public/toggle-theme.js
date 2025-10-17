@@ -23,6 +23,36 @@ function setPreference() {
   reflectPreference();
 }
 
+function updateFavicon() {
+  const isDark = themeValue === "dark";
+  const faviconLink = document.querySelector(
+    "link[rel='icon'][type='image/svg+xml']"
+  );
+
+  if (!faviconLink) return;
+
+  // Fetch and modify the SVG
+  fetch(faviconLink.href)
+    .then(response => response.text())
+    .then(svgText => {
+      // Add inline style to override media query
+      const styleOverride = isDark
+        ? `.bg-light, .logo-light { display: none !important; } .bg-dark, .logo-dark { display: block !important; }`
+        : `.bg-dark, .logo-dark { display: none !important; } .bg-light, .logo-light { display: block !important; }`;
+
+      const modifiedSvg = svgText.replace(
+        "</style>",
+        `${styleOverride}</style>`
+      );
+
+      // Update favicon with data URL
+      const blob = new Blob([modifiedSvg], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(blob);
+      faviconLink.href = url;
+    })
+    .catch(err => console.warn("Failed to update favicon:", err));
+}
+
 function reflectPreference() {
   document.firstElementChild.setAttribute("data-theme", themeValue);
 
@@ -44,6 +74,9 @@ function reflectPreference() {
       .querySelector("meta[name='theme-color']")
       ?.setAttribute("content", bgColor);
   }
+
+  // Update favicon to match theme
+  updateFavicon();
 
   const event = new CustomEvent("themechange", {
     detail: { theme: themeValue },

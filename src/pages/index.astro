@@ -69,15 +69,41 @@ const socials = [
     href: "https://www.facebook.com/satnaing.dev",
   },
 ];
+
+const TITLE = "Sat Naing";
+const DESCRIPTION = "All of Sat Naing's links in one place";
+const SITE_URL = "https://satna.ing/";
+const SOCIAL_IMG_URL = `${SITE_URL}og.png`;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Sat Naing</title>
+
+    <!-- General Meta Tags -->
+    <title>{TITLE}</title>
+    <meta name="title" content={TITLE} />
+    <meta name="description" content={DESCRIPTION} />
+    <meta name="theme-color" content="" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content={TITLE} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:image" content={SOCIAL_IMG_URL} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={SITE_URL} />
+    <meta property="twitter:title" content={TITLE} />
+    <meta property="twitter:description" content={DESCRIPTION} />
+    <meta property="twitter:image" content={SOCIAL_IMG_URL} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body
@@ -87,8 +113,6 @@ const socials = [
       "antialiased bg-background text-foreground",
     ]}
   >
-    <Pattern />
-
     <Header />
 
     <HeroSection />
@@ -109,6 +133,8 @@ const socials = [
       </span>
       <span>Bangkok, Thailand</span>
     </footer>
+
+    <Pattern />
   </body>
 
   <style>
