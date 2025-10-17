@@ -74,6 +74,9 @@ const TITLE = "Sat Naing";
 const DESCRIPTION = "All of Sat Naing's links in one place";
 const SITE_URL = "https://satna.ing/";
 const SOCIAL_IMG_URL = `${SITE_URL}og.png`;
+
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 ---
 
 <html lang="en">
@@ -103,6 +106,26 @@ const SOCIAL_IMG_URL = `${SITE_URL}og.png`;
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Analytics (Partytown) -->
+    {
+      GA_MEASUREMENT_ID && (
+        <>
+          <script
+            type="text/partytown"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+          <script type="text/partytown">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `}
+          </script>
+        </>
+      )
+    }
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>
