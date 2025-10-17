@@ -2,6 +2,7 @@
 import "@/styles/global.css";
 import "@fontsource-variable/josefin-sans";
 import Header from "@/components/Header.astro";
+import Pattern from "@/components/Pattern.astro";
 import HeroSection from "@/components/HeroSection.astro";
 import LinkSection from "@/components/LinkSection.astro";
 
@@ -77,6 +78,7 @@ const socials = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Sat Naing</title>
+    <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body
     class:list={[
@@ -85,6 +87,8 @@ const socials = [
       "antialiased bg-background text-foreground",
     ]}
   >
+    <Pattern />
+
     <Header />
 
     <HeroSection />
@@ -106,10 +110,10 @@ const socials = [
       <span>Bangkok, Thailand</span>
     </footer>
   </body>
-</html>
 
-<style>
-  body {
-    font-family: "Josefin Sans Variable", sans-serif;
-  }
-</style>
+  <style>
+    body {
+      font-family: "Josefin Sans Variable", sans-serif;
+    }
+  </style>
+</html>
