@@ -1,13 +1,14 @@
-<div
-  class="fixed inset-0 -z-20 sm:opacity-85"
-  style={{
-    backgroundImage: `
+<div class="fixed inset-0 -z-20 sm:opacity-85 bg-background">
+  <div
+    class="size-full"
+    style={{
+      backgroundImage: `
     linear-gradient(to right, var(--secondary) 1px, transparent 1px),
     linear-gradient(to bottom, var(--secondary) 1px, transparent 1px)
   `,
-    backgroundSize: "20px 20px",
-    backgroundPosition: "0 0, 0 0",
-    maskImage: `
+      backgroundSize: "20px 20px",
+      backgroundPosition: "0 0, 0 0",
+      maskImage: `
     repeating-linear-gradient(
           to right,
           black 0px,
@@ -24,7 +25,7 @@
         ),
         radial-gradient(ellipse 70% 60% at 50% 0%, var(--foreground) 60%, transparent 100%)
   `,
-    WebkitMaskImage: `
+      WebkitMaskImage: `
 repeating-linear-gradient(
           to right,
           black 0px,
@@ -41,8 +42,9 @@ repeating-linear-gradient(
         ),
         radial-gradient(ellipse 70% 60% at 50% 0%, var(--foreground) 60%, transparent 100%)
   `,
-    maskComposite: "intersect",
-    WebkitMaskComposite: "source-in",
-  }}
->
+      maskComposite: "intersect",
+      WebkitMaskComposite: "source-in",
+    }}
+  >
+  </div>
 </div>
