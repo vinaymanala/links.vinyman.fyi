@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 :root,
 html[data-theme="light"] {
   --background: #eef5ff;
@@ -8,6 +10,31 @@ html[data-theme="light"] {
   --badge: #2b7fff;
   --primary: #1d293d;
   --secondary: #fff;
+}
+
+html[data-theme="dark"] {
+  --background: #082032;
+  --foreground: #eeeeee;
+  --accent: #ff4c29;
+  --badge: #ff4c29;
+  --primary: #eeeeee;
+  --secondary: #2c394b;
+
+  /* ===== Other variants ===== */
+
+  /* --background: #222831;
+  --foreground: #eeeeee;
+  --accent: #ffd369;
+  --badge: #ffd369;
+  --primary: #eeeeee;
+  --secondary: #393e46; */
+
+  /* --background: #232931;
+  --foreground: #eeeeee;
+  --accent: #4ecca3;
+  --badge: #4ecca3;
+  --primary: #eeeeee;
+  --secondary: #393e46; */
 }
 
 @theme inline {

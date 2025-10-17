@@ -1,16 +1,51 @@
 ---
-import LangIcon from "@/assets/icons/lang.svg";
+import IconMoon from "@/assets/icons/IconMoon.svg";
+import IconSunHigh from "@/assets/icons/IconSun.svg";
 ---
 
 <header class="flex justify-between items-center px-4 py-2">
   <span class="text-lg">
     satna<span class="text-accent">.ing</span>
   </span>
-  <nav>
-    <ul>
-      <li>
-        <LangIcon />
-      </li>
-    </ul>
-  </nav>
+  <button
+    id="theme-btn"
+    class="relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent cursor-pointer rounded-full outline-none focus-visible:border-accent focus-visible:ring-accent/50 focus-visible:ring-[3px]"
+    title="Toggles light & dark"
+    aria-label="auto"
+    aria-live="polite"
+  >
+    <IconMoon
+      class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
+    />
+    <IconSunHigh
+      class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
+    />
+  </button>
 </header>
+
+<script>
+  function toggleNav() {
+    const menuBtn = document.querySelector("#menu-btn");
+    const menuItems = document.querySelector("#menu-items");
+    const menuIcon = document.querySelector("#menu-icon");
+    const closeIcon = document.querySelector("#close-icon");
+
+    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
+
+    menuBtn.addEventListener("click", () => {
+      const openMenu = menuBtn.getAttribute("aria-expanded") === "true";
+
+      menuBtn.setAttribute("aria-expanded", openMenu ? "false" : "true");
+      menuBtn.setAttribute("aria-label", openMenu ? "Open Menu" : "Close Menu");
+
+      menuItems.classList.toggle("hidden");
+      menuIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+    });
+  }
+
+  toggleNav();
+
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", toggleNav);
+</script>
