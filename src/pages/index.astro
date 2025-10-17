@@ -130,32 +130,30 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body
-    class:list={[
-      "min-h-dvh max-w-lg mx-auto",
-      "flex flex-col gap-8",
-      "antialiased bg-background text-foreground",
-    ]}
+    class:list={["h-dvh w-full", "antialiased bg-background text-foreground"]}
   >
-    <Header />
+    <div class:list={["max-w-lg mx-auto h-full", "flex flex-col gap-8"]}>
+      <Header />
 
-    <HeroSection />
+      <HeroSection />
 
-    <LinkSection title="Kitchen" links={kitchen} />
+      <LinkSection title="Kitchen" links={kitchen} />
 
-    <LinkSection title="Connect" links={connect} />
+      <LinkSection title="Connect" links={connect} />
 
-    <LinkSection title="Socials" links={socials} />
+      <LinkSection title="Socials" links={socials} />
 
-    <footer class="mt-auto px-4 py-2 flex justify-center items-center gap-2">
-      <span class="relative flex size-2">
-        <span
-          class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
-        ></span>
-        <span class="relative inline-flex size-2 rounded-full bg-emerald-500"
-        ></span>
-      </span>
-      <span>Bangkok, Thailand</span>
-    </footer>
+      <footer class="mt-auto px-4 py-2 flex justify-center items-center gap-2">
+        <span class="relative flex size-2">
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+          ></span>
+          <span class="relative inline-flex size-2 rounded-full bg-emerald-500"
+          ></span>
+        </span>
+        <span>Bangkok, Thailand</span>
+      </footer>
+    </div>
 
     <Pattern />
   </body>
