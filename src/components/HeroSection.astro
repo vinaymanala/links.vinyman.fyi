@@ -66,8 +66,12 @@ const techStack = [
       }
     </ul>
     <div class="mt-auto">
-      <Button isPrimary>
-        <DownloadIcon width={18} height={18} />
+      <Button
+        isPrimary
+        href={import.meta.env.PUBLIC_RESUME_URL}
+        aria-label="Download Sat Naing's resume"
+      >
+        <DownloadIcon width={18} height={18} aria-hidden="true" />
         Resume
       </Button>
     </div>
