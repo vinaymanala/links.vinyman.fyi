@@ -9,6 +9,7 @@ export interface Props {
     title: string;
     icon: SvgComponent & ImageMetadata;
     href: string;
+    ariaLabel?: string;
   }[];
 }
 
@@ -21,13 +22,19 @@ const { title, links } = Astro.props;
     {
       links.map(item => (
         <li>
-          <Button href={item.href}>
-            <item.icon width={20} height={20} />
+          <Button
+            href={item.href}
+            aria-label={
+              item.ariaLabel ?? `Visit ${item.title} (opens in new tab)`
+            }
+          >
+            <item.icon width={20} height={20} aria-hidden="true" />
             <span class="text-lg">{item.title}</span>
             <ArrowRightIcon
               width={20}
               height={20}
               class="ms-auto text-foreground/75 sm:hidden"
+              aria-hidden="true"
             />
           </Button>
         </li>

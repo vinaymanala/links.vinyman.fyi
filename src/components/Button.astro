@@ -4,6 +4,7 @@ export interface Props {
   href: string;
   isPrimary?: boolean;
   "aria-label"?: string;
+  rel?: string;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   href,
   isPrimary,
   "aria-label": ariaLabel,
+  rel,
 } = Astro.props;
 
 const Comp = href ? "a" : "button";
@@ -33,6 +35,7 @@ const Comp = href ? "a" : "button";
   ]}
   href={href ?? undefined}
   target={href ? "_blank" : undefined}
+  rel={rel ?? (href ? "noopener noreferrer" : undefined)}
   aria-label={ariaLabel}
 >
   <slot />
