@@ -2,36 +2,11 @@
 import { Image } from "astro:assets";
 import Button from "@/components/Button.astro";
 
-import CSSIcon from "@/assets/icons/CSS.svg";
-import HTMLIcon from "@/assets/icons/HTML.svg";
-import ViteIcon from "@/assets/icons/Vite.svg";
-import NextIcon from "@/assets/icons/NextJS.svg";
-import AstroIcon from "@/assets/icons/Astro.svg";
 import BadgeIcon from "@/assets/icons/badge.svg";
-import NodeIcon from "@/assets/icons/NodeJS.svg";
-import ReactIcon from "@/assets/icons/ReactJS.svg";
-import SvelteIcon from "@/assets/icons/Svelte.svg";
-import DockerIcon from "@/assets/icons/Docker.svg";
-import heroImage from "@/assets/images/satnaing.jpg";
-import TailwindIcon from "@/assets/icons/Tailwind.svg";
+import heroImage from "@/assets/images/vinyman.jpg";
 import DownloadIcon from "@/assets/icons/Download.svg";
-import JavaScriptIcon from "@/assets/icons/JavaScript.svg";
-import TypeScriptIcon from "@/assets/icons/TypeScript.svg";
 
-const techStack = [
-  HTMLIcon,
-  JavaScriptIcon,
-  CSSIcon,
-  TypeScriptIcon,
-  ReactIcon,
-  NextIcon,
-  AstroIcon,
-  NodeIcon,
-  ViteIcon,
-  SvelteIcon,
-  DockerIcon,
-  TailwindIcon,
-];
+
 ---
 
 <section
@@ -39,7 +14,7 @@ const techStack = [
 >
   <Image
     src={heroImage}
-    alt="Sat Naing"
+    alt="Vinay Manala"
     priority
     width={200}
     height={200}
@@ -52,24 +27,16 @@ const techStack = [
     class="flex-1 sm:self-stretch flex items-center sm:items-start flex-col gap-2"
   >
     <div class="flex gap-2 items-center">
-      <h1 class="text-3xl font-bold">Sat Naing</h1>
+      <h1 class="text-3xl font-bold">Vinay Manala</h1>
       <BadgeIcon class="text-badge" />
     </div>
-    <span class="opacity-75 text-lg">Not a chef, but I'm cooking!</span>
-    <ul class="grid grid-cols-6 gap-x-6 gap-y-3 max-sm:hidden">
-      {
-        techStack.map(Icon => (
-          <li>
-            <Icon class="text-muted stroke-[1.5px] opacity-65" />
-          </li>
-        ))
-      }
-    </ul>
+    <span class="opacity-75 text-lg">Getting work done!</span>
+    <span class="opacity-75 text-md">A 27-year-old developer working hard to make a difference.</span>    
     <div class="mt-auto">
       <Button
         isPrimary
         href={import.meta.env.PUBLIC_RESUME_URL}
-        aria-label="Download Sat Naing's resume (opens in new tab)"
+        aria-label="Download Vinay Manala's resume (opens in new tab)"
       >
         <DownloadIcon width={18} height={18} aria-hidden="true" />
         Resume

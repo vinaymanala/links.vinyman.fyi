@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+// @ts-ignore: no type declarations for fontsource side-effect import
 import "@fontsource-variable/josefin-sans";
 import Header from "@/components/Header.astro";
 import Pattern from "@/components/Pattern.astro";
@@ -7,91 +8,52 @@ import HeroSection from "@/components/HeroSection.astro";
 import LinkSection from "@/components/LinkSection.astro";
 import Footer from "@/components/Footer.astro";
 
-import XIcon from "@/assets/icons/X.svg";
 import GitHubIcon from "@/assets/icons/GitHub.svg";
 import MailIcon from "@/assets/icons/MailIcon.svg";
 import BlueskyIcon from "@/assets/icons/Bluesky.svg";
-import TerminalIcon from "@/assets/icons/Terminal.svg";
 import UserCodeIcon from "@/assets/icons/UserCode.svg";
 import LinkedInIcon from "@/assets/icons/LinkedIn.svg";
-import FacebookIcon from "@/assets/icons/Facebook.svg";
-import InstagramIcon from "@/assets/icons/Instagram.svg";
-import ThreadsIcon from "@/assets/icons/Threads.svg";
 
-const kitchen = [
-  {
-    title: "GitHub",
-    icon: GitHubIcon,
-    href: "https://github.com/satnaing",
-    ariaLabel: "View Sat Naing's projects on GitHub (opens in new tab)",
-  },
-  {
-    title: "Terminal",
-    icon: TerminalIcon,
-    href: "https://terminal.satnaing.dev",
-    ariaLabel:
-      "Try Sat Naing's interactive terminal portfolio (opens in new tab)",
-  },
-  {
-    title: "Portfolio",
-    icon: UserCodeIcon,
-    href: "https://satnaing.dev",
-    ariaLabel: "Visit Sat Naing's portfolio website (opens in new tab)",
-  },
-];
+
 
 const connect = [
   {
+    title: "GitHub",
+    icon: GitHubIcon,
+    href: "https://github.com/vinaymanala",
+    ariaLabel: "View Vinay Manala's projects on GitHub (opens in new tab)",
+  },
+  {
+    title: "Blog",
+    icon: UserCodeIcon,
+    href: "https://blog.vinyman.fyi",
+    ariaLabel:
+      "Visit Vinay Manala's blog posts (opens in new tab)",
+  },  
+  {
     title: "Email",
     icon: MailIcon,
-    href: "mailto:satnaingdev@gmail.com",
-    ariaLabel: "Send an email to Sat Naing at satnaingdev@gmail.com",
+    href: "mailto:vinaymworks@gmail.com",
+    ariaLabel: "Send an email to Vinay Manala at vinaymworks@gmail.com",
   },
   {
     title: "LinkedIn",
     icon: LinkedInIcon,
-    href: "https://www.linkedin.com/in/satnaing/",
-    ariaLabel: "Connect with Sat Naing on LinkedIn (opens in new tab)",
+    href: "https://www.linkedin.com/in/vinaymanala/",
+    ariaLabel: "Connect with Vinay Manala on LinkedIn (opens in new tab)",
   },
-];
-
-const socials = [
   {
     title: "Bluesky",
     icon: BlueskyIcon,
-    href: "https://bsky.app/profile/satnaing.bsky.social",
-    ariaLabel: "Follow Sat Naing on Bluesky (opens in new tab)",
-  },
-  {
-    title: "Twitter (X)",
-    icon: XIcon,
-    href: "https://x.com/SatNaingDev",
-    ariaLabel: "Follow Sat Naing on Twitter/X (opens in new tab)",
-  },
-  {
-    title: "Instagram",
-    icon: InstagramIcon,
-    href: "https://www.instagram.com/satnaing.dev/",
-    ariaLabel: "Follow Sat Naing on Instagram (opens in new tab)",
-  },
-  {
-    title: "Threads",
-    icon: ThreadsIcon,
-    href: "https://www.threads.com/@satnaing.dev",
-    ariaLabel: "Follow Sat Naing on Threads (opens in new tab)",
-  },
-  {
-    title: "Facebook",
-    icon: FacebookIcon,
-    href: "https://www.facebook.com/satnaing.dev",
-    ariaLabel: "Follow Sat Naing on Facebook (opens in new tab)",
+    href: "https://bsky.app/profile/vinyman.bsky.social",
+    ariaLabel: "Follow Vinay Manala on Bluesky (opens in new tab)",
   },
 ];
 
-const TITLE = "Sat Naing";
-const DESCRIPTION = "All of Sat Naing's links in one place";
-const SITE_URL = "https://satna.ing/";
-const SOCIAL_IMG_URL = `${SITE_URL}og.png`;
+const TITLE = "Vinay Manala";
+const DESCRIPTION = "All of Vinay Manala's links in one place";
+const SITE_URL = "https://vinyman.fyi/";
+// const SOCIAL_IMG_URL = image.src;
 
 // Google Analytics Measurement ID
 const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
@@ -113,14 +75,14 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     <meta property="og:title" content={TITLE} />
     <meta property="og:description" content={DESCRIPTION} />
     <meta property="og:url" content={SITE_URL} />
-    <meta property="og:image" content={SOCIAL_IMG_URL} />
+    <!-- <meta property="og:image" content={SOCIAL_IMG_URL} /> -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={SITE_URL} />
     <meta property="twitter:title" content={TITLE} />
     <meta property="twitter:description" content={DESCRIPTION} />
-    <meta property="twitter:image" content={SOCIAL_IMG_URL} />
+    <!-- <meta property="twitter:image" content={SOCIAL_IMG_URL} /> -->
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -153,13 +115,9 @@ const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
     <div class:list={["max-w-lg mx-auto h-full", "flex flex-col gap-8"]}>
       <Header />
 
-      <HeroSection />
+      <HeroSection />      
 
-      <LinkSection title="Kitchen" links={kitchen} />
-
-      <LinkSection title="Connect" links={connect} />
-
-      <LinkSection title="Socials" links={socials} />
+      <LinkSection title="Connect" links={connect} />      
 
       <Footer />
     </div>

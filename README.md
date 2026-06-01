@@ -1,16 +1,13 @@
-# satna.ing
+# vinyman.fyi
 
-A fully custom link hub designed and built from scratch.
+<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/c9c2f3d5-8e65-4511-bc75-6e9c15655916/deploy-status)](https://app.netlify.com/projects/satna-ing/deploys) -->
 
-https://github.com/user-attachments/assets/25bc62ef-1c24-49dd-955d-83a4454f9502
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c9c2f3d5-8e65-4511-bc75-6e9c15655916/deploy-status)](https://app.netlify.com/projects/satna-ing/deploys)
 [![Astro](https://img.shields.io/badge/Astro-5.14-FF5D01?logo=astro)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38B2AC?logo=tailwind-css)](https://tailwindcss.com)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> Designed and built with ❤️ by [Sat Naing](https://satna.ing)
+> This link hub is designed with ❤️ and inspired by [Sat Naing](https://satna.ing)
 
 ## 🛠️ Tech Stack
 

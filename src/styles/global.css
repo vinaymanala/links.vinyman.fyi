@@ -14,9 +14,9 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] {
   --background: #082032;
-  --foreground: #eeeeee;
-  --accent: #ff4c29;
-  --badge: #ff4c29;
+  --foreground: #eeeeee;  
+  --accent: #f65314;
+  --badge: #f65314;
   --primary: #eeeeee;
   --secondary: #2c394b;
 

@@ -18,12 +18,13 @@ const { title, links } = Astro.props;
 
 <section class="px-4">
   <h2 class="text-lg font-bold mb-2">{title}</h2>
-  <ul class="flex flex-col flex-wrap sm:flex-row sm:items-center gap-4">
+  <ul class="flex flex-col gap-4 items-center">
     {
-      links.map(item => (
-        <li>
+      links.map(item => (        
+        <li class="w-full">
           <Button
-            href={item.href}
+            class="w-full"
+            href={item.href}            
             aria-label={
               item.ariaLabel ?? `Visit ${item.title} (opens in new tab)`
             }
