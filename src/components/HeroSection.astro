@@ -5,6 +5,7 @@ import Button from "@/components/Button.astro";
 import BadgeIcon from "@/assets/icons/badge.svg";
 import heroImage from "@/assets/images/vinyman.jpg";
 import DownloadIcon from "@/assets/icons/Download.svg";
+import Resume from "@/assets/documents/One_page_of_VinayManala_Resume.pdf"
 
 
 ---
@@ -35,7 +36,7 @@ import DownloadIcon from "@/assets/icons/Download.svg";
     <div class="mt-auto">
       <Button
         isPrimary
-        href={import.meta.env.PUBLIC_RESUME_URL}
+        href={Resume}
         aria-label="Download Vinay Manala's resume (opens in new tab)"
       >
         <DownloadIcon width={18} height={18} aria-hidden="true" />
